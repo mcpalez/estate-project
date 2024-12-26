@@ -1,8 +1,15 @@
-# React + Vite
+# Real Estate Listing Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Opis projektu
+Aplikacja do zarządzania ogłoszeniami nieruchomości, która wykorzystuje **Strapi** jako headless CMS do zarządzania danymi, **React** jako główny framework JavaScript, **Redux** do przechowywania ulubionych nieruchomości w local storage oraz **Tailwind CSS** do stylizacji interfejsu użytkownika.
 
-Currently, two official plugins are available:
+## Technologie
+- **Frontend**: React, Redux, Tailwind CSS
+- **Backend**: Strapi (Headless CMS)
+- **Baza danych**: SQLite / MongoDB (w zależności od konfiguracji Strapi)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funkcjonalności
+- Wyświetlanie listy nieruchomości z backendu Strapi
+- Możliwość dodawania, edytowania i usuwania ogłoszeń nieruchomości
+- Przechowywanie ulubionych nieruchomości w local storage przy użyciu Redux
+- Responsywny interfejs użytkownika z wykorzystaniem Tailwind CSS
