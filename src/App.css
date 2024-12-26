@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+body,
+html {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+}
+
+.listableHeader::after,
+.listableRooms::after,
+.listableArea::after,
+.listableSave::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: calc(100% - 4px);
+  height: 2px;
+  bottom: 0;
+  left: 2px;
+  background-color: #c4c4c4;
+}/*# sourceMappingURL=App.css.map */

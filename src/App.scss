@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+body,
+html {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+}
+
+
+.listableHeader,
+.listableRooms,
+.listableArea,
+.listableSave {
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: calc(100% - 4px);
+    height: 2px;
+    bottom: 0;
+    left: 2px;
+    background-color: #c4c4c4;
+  }
+}
