@@ -73,7 +73,7 @@ function Apartments() {
                     </div>
                 </div>
             </section>
-            <section className="apartments-listing container mx-auto px-3">
+            <section className="apartments-listing container mx-auto px-4">
                 <div className="flex flex-wrap text-[16.4px]">
                     {apartments.map((apartment) => (
                         <div
