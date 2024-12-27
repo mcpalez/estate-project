@@ -25,10 +25,10 @@ function ApartmentsCard({ apartment, isFavorite, onFavoriteClick }) {
                                 {apartment.liczba_pokoi}
                             </div>
                         </div>
-                        <div className="apartmentList__area flex-none w-[105px] font-[700] text-[#00326f] text-right p-[6px]">
+                        <div className="apartmentList__area flex-none w-[100px] font-[700] text-[#00326f] text-right p-[6px]">
                             {apartment.metraz} m²
                         </div>
-                        <div className="apartmentList__features flex-none w-[105px] font-[700] text-[#00326f] text-right p-[6px] hidden">
+                        <div className="apartmentList__features flex-none w-[100px] font-[700] text-[#00326f] text-right p-[6px] hidden">
                             {apartment.balkon === true ? "Tak" : "Nie"}
                         </div>
                         <div className="apartmentList__price flex-none font-[700] text-[#00326f] text-right p-[6px] hidden">
