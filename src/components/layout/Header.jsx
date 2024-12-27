@@ -14,7 +14,7 @@ function Header() {
                             <div className="logo-app">NOVITO</div>
                             <div className="mobile-nav">
                                 <div className="nav-el">
-                                    <Link to="/favorites">
+                                    <Link to="/ulubione">
                                         {favorites.length > 0 ? (
                                             <div className="relative">
                                                 <AiFillStar className="text-gray-300" />

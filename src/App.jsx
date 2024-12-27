@@ -13,9 +13,9 @@ function App() {
             <Header />
             <main className="app-content">
                 <Routes>
-                    <Route path="/apartments" element={<Apartments />} />
-                    <Route path="/apartments/:id" element={<ApartmentView />} />
-                    <Route path="/favorites" element={<Favorites />}></Route>
+                    <Route path="/mieszkania" element={<Apartments />} />
+                    <Route path="/mieszkania/:id" element={<ApartmentView />} />
+                    <Route path="/ulubione" element={<Favorites />}></Route>
                 </Routes>
             </main>
         </Router>

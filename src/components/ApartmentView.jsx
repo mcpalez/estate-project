@@ -11,7 +11,7 @@ const ApartmentDetail = () => {
         const fetchApartment = async () => {
             try {
                 const response = await fetch(
-                    `http://localhost:1337/api/apartments/${id}`
+                    `http://localhost:1337/api/mieszkania/${id}`
                 );
                 const data = await response.json();
                 if (data.data) {

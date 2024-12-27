@@ -7,7 +7,7 @@ function ApartmentsCard({ apartment, isFavorite, onFavoriteClick }) {
         <>
             <div className="flex items-center w-full border-b-[1px] border-slate-200 py-2">
                 <Link
-                    to={`/apartments/${apartment.documentId}`}
+                    to={`/mieszkania/${apartment.documentId}`}
                     className="flex-grow"
                 >
                     <div className="flex items-center">

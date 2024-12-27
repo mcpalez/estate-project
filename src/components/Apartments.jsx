@@ -17,7 +17,7 @@ function Apartments() {
         const fetchApartments = async () => {
             try {
                 const response = await fetch(
-                    "http://localhost:1337/api/apartments"
+                    "http://localhost:1337/api/mieszkania"
                 );
                 const data = await response.json();
                 setApartments(data.data);
