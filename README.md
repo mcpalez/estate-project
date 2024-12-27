@@ -6,7 +6,6 @@ Aplikacja do zarządzania ogłoszeniami nieruchomości, która wykorzystuje **St
 ## Technologie
 - **Frontend**: React, Redux, Tailwind CSS
 - **Backend**: Strapi (Headless CMS)
-- **Baza danych**: SQLite / MongoDB (w zależności od konfiguracji Strapi)
 
 ## Funkcjonalności
 - Wyświetlanie listy nieruchomości z backendu Strapi
