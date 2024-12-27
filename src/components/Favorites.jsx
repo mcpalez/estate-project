@@ -1,7 +1,14 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFavorite } from "../redux/actions";
 
 function Favorites() {
+    const dispatch = useDispatch();
     const favorites = useSelector((state) => state.favorites);
+
+    const handleFavoriteClick = (apartment) => {
+        dispatch(removeFavorite(apartment));
+    };
+
     return (
         <>
             <div>
@@ -10,7 +17,14 @@ function Favorites() {
                     <p>Brak mieszkań</p>
                 ) : (
                     favorites.map((favorite) => (
-                        <div key={favorite.id}>{favorite.nazwa}</div>
+                        <div key={favorite.id}>
+                            <div>{favorite.nazwa}</div>
+                            <button
+                                onClick={() => handleFavoriteClick(favorite)}
+                            >
+                                Usun
+                            </button>
+                        </div>
                     ))
                 )}
             </div>

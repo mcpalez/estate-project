@@ -32,7 +32,7 @@ const ApartmentDetail = () => {
     }, [id]);
 
     if (isLoading) {
-        return <p>Ładowanie...</p>;
+        return <p>Ładowanie danych...</p>;
     }
 
     if (error) {
