@@ -11,13 +11,13 @@ function ApartmentsCard({ apartment, isFavorite, onFavoriteClick }) {
                     className="flex-grow"
                 >
                     <div className="flex items-center">
-                        <div className="apartmentList__investition flex-none w-[150px] font-[400] text-[#00326f] p-[6px] pl-0 hidden">
+                        <div className="apartmentList__investition flex-none w-[150px] font-[400] text-black p-[6px] pl-0 hidden">
                             {apartment.inwestycja}
                         </div>
-                        <div className="apartmentList__name flex-none w-[150px] font-[400] text-[#00326f] p-[6px] pl-0">
+                        <div className="apartmentList__name flex-none w-[150px] font-[400] text-black p-[6px] pl-0">
                             {apartment.nazwa}
                         </div>
-                        <div className="apartmentList__pietro flex-none w-[150px] font-[400] text-[#00326f] p-[6px] pl-0 hidden">
+                        <div className="apartmentList__pietro flex-none w-[150px] font-[400] text-black p-[6px] pl-0 hidden">
                             {apartment.pietro}
                         </div>
                         <div className="apartmentList__rooms flex-none w-[60px] rounded text-center p-[6px]">
@@ -25,13 +25,13 @@ function ApartmentsCard({ apartment, isFavorite, onFavoriteClick }) {
                                 {apartment.liczba_pokoi}
                             </div>
                         </div>
-                        <div className="apartmentList__area flex-none w-[100px] font-[700] text-[#00326f] text-right p-[6px]">
+                        <div className="apartmentList__area flex-none w-[100px] font-[700] text-black text-right p-[6px]">
                             {apartment.metraz} m²
                         </div>
-                        <div className="apartmentList__features flex-none w-[100px] font-[700] text-[#00326f] text-right p-[6px] hidden">
+                        <div className="apartmentList__features flex-none w-[100px] font-[700] text-black text-right p-[6px] hidden">
                             {apartment.balkon === true ? "Tak" : "Nie"}
                         </div>
-                        <div className="apartmentList__price flex-none font-[700] text-[#00326f] text-right p-[6px] hidden">
+                        <div className="apartmentList__price flex-none font-[700] text-black text-right p-[6px] hidden">
                             {apartment.cena} PLN
                         </div>
                     </div>
@@ -45,7 +45,7 @@ function ApartmentsCard({ apartment, isFavorite, onFavoriteClick }) {
                         <AiFillStar
                             className={`${
                                 isFavorite(apartment.id)
-                                    ? "text-[#f2d56b]"
+                                    ? "text-[#f2d56b] animate-bounce"
                                     : "text-gray-300"
                             } w-6 h-6 md:hover:text-red-500`}
                         />

@@ -1,11 +1,11 @@
 import { useSearchParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../redux/actions";
-import ApartmentsHeroSearch from "./apartmentsSearch/ApartmentsHeroSearch";
 import ApartmentsTabHeader from "./apartmentsSearch/ApartmentsTabHeader";
 import ApartmentsCard from "./apartmentsSearch/ApartmentsCard";
 import ApartmentsFilter from "./apartmentsSearch/ApartmentsFilter";
 import { useFilteredApartments } from "../hooks/useFilteredApartments";
+import ApartmentsFilterModal from "./apartmentsSearch/ApartmentsFilterModal";
 
 function Apartments() {
     const [searchParams, setSearchParams] = useSearchParams("");
@@ -59,14 +59,21 @@ function Apartments() {
 
     return (
         <>
+            <ApartmentsFilterModal />
             <ApartmentsFilter
                 priceMin={priceMin}
                 priceMax={priceMax}
                 onFilterChange={handleFilterChange}
             />
-            <ApartmentsHeroSearch />
             <ApartmentsTabHeader />
-            <section className="apartments-listing container mx-auto px-4">
+            <section className="apartments-listing container mx-auto px-3 py-2">
+                {apartments.length === 0 ? (
+                    <div className="container mx-auto py-8">
+                        <p>Brak wyników</p>
+                    </div>
+                ) : (
+                    ""
+                )}
                 {apartments.map((apartment) => (
                     <ApartmentsCard
                         key={apartment.id}
