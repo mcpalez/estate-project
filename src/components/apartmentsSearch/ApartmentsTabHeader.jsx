@@ -12,7 +12,7 @@ function ApartmentsTableHeader() {
                     Metraz
                 </div>
                 <div className="listableSave p-[6px] pr-0 w-[80px] flex-grow text-right pb-3">
-                    Add
+                    Opt
                 </div>
             </div>
         </section>

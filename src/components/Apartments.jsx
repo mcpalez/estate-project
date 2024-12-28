@@ -1,39 +1,31 @@
-import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../redux/actions";
-import { useSearchParams } from "react-router";
-
 import ApartmentsHeroSearch from "./apartmentsSearch/ApartmentsHeroSearch";
 import ApartmentsTabHeader from "./apartmentsSearch/ApartmentsTabHeader";
 import ApartmentsCard from "./apartmentsSearch/ApartmentsCard";
+import ApartmentsFilter from "./apartmentsSearch/ApartmentsFilter";
+import { useFilteredApartments } from "../hooks/useFilteredApartments";
 
 function Apartments() {
     const [searchParams, setSearchParams] = useSearchParams("");
-    const [apartments, setApartments] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
     const dispatch = useDispatch();
     const favorites = useSelector((state) => state.favorites);
 
-    const priceMax = searchParams.get("price_max") || "";
+    const priceMax = parseInt(searchParams.get("price_max")) || "";
+    const priceMin = parseInt(searchParams.get("price_min")) || "";
 
-    useEffect(() => {
-        const fetchApartments = async () => {
-            try {
-                const response = await fetch(
-                    "http://localhost:1337/api/mieszkania"
-                );
-                const data = await response.json();
-                setApartments(data.data);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setIsLoading(false);
+    const handleFilterChange = (key, value) => {
+        setSearchParams((prev) => {
+            const newParams = new URLSearchParams(prev);
+            if (value === "") {
+                newParams.delete(key);
+            } else {
+                newParams.set(key, value);
             }
-        };
-
-        fetchApartments();
-    }, []);
+            return newParams;
+        });
+    };
 
     const isFavorite = (apartmentId) => {
         return favorites.some((favorite) => favorite.id === apartmentId);
@@ -47,21 +39,11 @@ function Apartments() {
         }
     };
 
-    const handleFilterChange = (key, value) => {
-        setSearchParams((prev) => {
-            if (value) {
-                prev.set(key, value);
-            } else {
-                prev.delete(key, value);
-            }
-            return prev;
-        });
-    };
-
-    const filteredApartments = apartments.filter((apartment) => {
-        const matchesPrice = priceMax ? apartment.cena <= priceMax : true;
-        return matchesPrice;
-    });
+    const { apartments, isLoading, error } = useFilteredApartments(
+        "http://localhost:1337/api/mieszkania",
+        priceMin,
+        priceMax
+    );
 
     if (isLoading) {
         return (
@@ -77,30 +59,15 @@ function Apartments() {
 
     return (
         <>
-            <div>
-                <label>Cena do</label>
-
-                {/* <input
-                    type="number"
-                    value={price}
-                    onChange={(e) =>
-                        handleFilterChange("price", e.target.value)
-                    }
-                /> */}
-                <select
-                    value={priceMax}
-                    onChange={(e) =>
-                        handleFilterChange("price_max", e.target.value)
-                    }
-                >
-                    <option value="250000">250 000</option>
-                    <option value="500000">500 000</option>
-                </select>
-            </div>
+            <ApartmentsFilter
+                priceMin={priceMin}
+                priceMax={priceMax}
+                onFilterChange={handleFilterChange}
+            />
             <ApartmentsHeroSearch />
             <ApartmentsTabHeader />
             <section className="apartments-listing container mx-auto px-4">
-                {filteredApartments.map((apartment) => (
+                {apartments.map((apartment) => (
                     <ApartmentsCard
                         key={apartment.id}
                         apartment={apartment}
