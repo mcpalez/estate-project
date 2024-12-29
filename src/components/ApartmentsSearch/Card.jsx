@@ -2,22 +2,22 @@ import { Link } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import PropTypes from "prop-types";
 
-function ApartmentsCard({ apartment, isFavorite, onFavoriteClick }) {
+function Card({ apartment, isFavorite, onFavoriteClick }) {
     return (
         <>
-            <div className="flex items-center w-full border-b-[1px] border-slate-200 py-2">
+            <div className="apartment_item flex items-center w-full border-b-[1px] border-slate-200 py-2">
                 <Link
                     to={`/mieszkania/${apartment.documentId}`}
                     className="flex-grow"
                 >
                     <div className="flex items-center">
-                        <div className="apartmentList__investition flex-none w-[150px] font-[400] text-black p-[6px] pl-0 hidden">
+                        <div className="apartmentList__investition flex-none w-[150px] xl:w-[350px] font-[400] p-[6px] pl-0 hidden md:block">
                             {apartment.inwestycja}
                         </div>
-                        <div className="apartmentList__name flex-none w-[150px] font-[400] text-black p-[6px] pl-0">
+                        <div className="apartmentList__name flex-none w-[150px] font-[400] p-[6px] pl-0">
                             {apartment.nazwa}
                         </div>
-                        <div className="apartmentList__pietro flex-none w-[150px] font-[400] text-black p-[6px] pl-0 hidden">
+                        <div className="apartmentList__pietro flex-none w-[60px] font-[400] text-center p-[6px] pl-0 hidden md:block">
                             {apartment.pietro}
                         </div>
                         <div className="apartmentList__rooms flex-none w-[60px] rounded text-center p-[6px]">
@@ -25,13 +25,13 @@ function ApartmentsCard({ apartment, isFavorite, onFavoriteClick }) {
                                 {apartment.liczba_pokoi}
                             </div>
                         </div>
-                        <div className="apartmentList__area flex-none w-[100px] font-[700] text-black text-right p-[6px]">
+                        <div className="apartmentList__area flex-none w-[100px] font-[700] text-right p-[6px]">
                             {apartment.metraz} m²
                         </div>
-                        <div className="apartmentList__features flex-none w-[100px] font-[700] text-black text-right p-[6px] hidden">
+                        <div className="apartmentList__features flex-none w-[150px] text-center p-[6px] hidden md:block">
                             {apartment.balkon === true ? "Tak" : "Nie"}
                         </div>
-                        <div className="apartmentList__price flex-none font-[700] text-black text-right p-[6px] hidden">
+                        <div className="apartmentList__price flex-none w-[150px] text-center p-[6px] hidden lg:block">
                             {apartment.cena} PLN
                         </div>
                     </div>
@@ -45,9 +45,9 @@ function ApartmentsCard({ apartment, isFavorite, onFavoriteClick }) {
                         <AiFillStar
                             className={`${
                                 isFavorite(apartment.id)
-                                    ? "text-[#f2d56b] animate-bounce"
+                                    ? "text-[#4955c6] animate-bounce"
                                     : "text-gray-300"
-                            } w-6 h-6 md:hover:text-red-500`}
+                            } w-6 h-6 md:w-8 md:h-8 md:hover:text-[#4955c6]`}
                         />
                     </button>
                 </div>
@@ -56,7 +56,7 @@ function ApartmentsCard({ apartment, isFavorite, onFavoriteClick }) {
     );
 }
 
-ApartmentsCard.propTypes = {
+Card.propTypes = {
     apartment: PropTypes.shape({
         id: PropTypes.number.isRequired,
         documentId: PropTypes.string.isRequired,
@@ -72,4 +72,4 @@ ApartmentsCard.propTypes = {
     onFavoriteClick: PropTypes.func.isRequired,
 };
 
-export default ApartmentsCard;
+export default Card;

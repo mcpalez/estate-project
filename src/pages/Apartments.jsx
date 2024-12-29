@@ -1,19 +1,17 @@
 import { useSearchParams } from "react-router";
-import { useDispatch, useSelector } from "react-redux";
-import { addFavorite, removeFavorite } from "../redux/actions";
-import ApartmentsTabHeader from "./apartmentsSearch/ApartmentsTabHeader";
-import ApartmentsCard from "./apartmentsSearch/ApartmentsCard";
-import ApartmentsFilter from "./apartmentsSearch/ApartmentsFilter";
 import { useFilteredApartments } from "../hooks/useFilteredApartments";
-import ApartmentsFilterModal from "./apartmentsSearch/ApartmentsFilterModal";
+import { useFavorite } from "../hooks/useFavorite";
+
+import TabHeader from "../components/ApartmentsSearch/TabHeader";
+import Card from "../components/ApartmentsSearch/Card";
+import Filter from "../components/ApartmentsSearch/Filter";
 
 function Apartments() {
     const [searchParams, setSearchParams] = useSearchParams("");
-    const dispatch = useDispatch();
-    const favorites = useSelector((state) => state.favorites);
+    const { isFavorite, toggleFavorite } = useFavorite();
 
-    const priceMax = parseInt(searchParams.get("price_max")) || "";
-    const priceMin = parseInt(searchParams.get("price_min")) || "";
+    const priceMax = searchParams.get("price_max") || "";
+    const priceMin = searchParams.get("price_min") || "";
 
     const handleFilterChange = (key, value) => {
         setSearchParams((prev) => {
@@ -25,18 +23,6 @@ function Apartments() {
             }
             return newParams;
         });
-    };
-
-    const isFavorite = (apartmentId) => {
-        return favorites.some((favorite) => favorite.id === apartmentId);
-    };
-
-    const handleFavoriteClick = (apartment) => {
-        if (isFavorite(apartment.id)) {
-            dispatch(removeFavorite(apartment));
-        } else {
-            dispatch(addFavorite(apartment));
-        }
     };
 
     const { apartments, isLoading, error } = useFilteredApartments(
@@ -59,27 +45,24 @@ function Apartments() {
 
     return (
         <>
-            <ApartmentsFilterModal />
-            <ApartmentsFilter
+            <Filter
                 priceMin={priceMin}
                 priceMax={priceMax}
                 onFilterChange={handleFilterChange}
             />
-            <ApartmentsTabHeader />
+            <TabHeader />
             <section className="apartments-listing container mx-auto px-3 py-2">
                 {apartments.length === 0 ? (
                     <div className="container mx-auto py-8">
                         <p>Brak wyników</p>
                     </div>
-                ) : (
-                    ""
-                )}
+                ) : null}
                 {apartments.map((apartment) => (
-                    <ApartmentsCard
+                    <Card
                         key={apartment.id}
                         apartment={apartment}
                         isFavorite={isFavorite}
-                        onFavoriteClick={handleFavoriteClick}
+                        onFavoriteClick={toggleFavorite}
                     />
                 ))}
             </section>

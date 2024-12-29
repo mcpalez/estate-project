@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { LuSlidersHorizontal } from "react-icons/lu";
 
-function ApartmentsFilterModal() {
+function FilterModal() {
     const [isOpen, setIsOpen] = useState(false);
 
     const filterModalHandler = () => {
@@ -25,11 +25,11 @@ function ApartmentsFilterModal() {
             <div
                 className={
                     isOpen === true
-                        ? "filterModal_wrapper block"
-                        : "filterModal_wrapper hidden"
+                        ? "filterModal_wrapper block h-full"
+                        : "filterModal_wrapper hidden h-full"
                 }
             >
-                <div className="filterModal bg-white h-full w-full absolute top-0 bottom-0 z-20">
+                <div className="filterModal">
                     <div className="container mx-auto px-3">
                         <p>Filters</p>
                         <button onClick={filterModalHandler}>
@@ -56,4 +56,4 @@ function ApartmentsFilterModal() {
     );
 }
 
-export default ApartmentsFilterModal;
+export default FilterModal;

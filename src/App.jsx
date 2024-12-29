@@ -2,10 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 
-import Apartments from "./components/Apartments";
-import ApartmentView from "./components/ApartmentView";
+import Apartments from "./pages/Apartments";
+import ApartmentView from "./pages/ApartmentView";
 import Header from "./components/layout/Header";
-import Favorites from "./components/Favorites";
+import Favorites from "./pages/Favorites";
 
 function App() {
     return (
