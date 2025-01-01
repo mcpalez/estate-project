@@ -11,7 +11,7 @@ function Favorites() {
 
     return (
         <>
-            <div>
+            <div className="container mx-auto px-3 py-3">
                 <h2>Zapisane oferty</h2>
                 {favorites.length === 0 ? (
                     <p>Brak mieszkań</p>

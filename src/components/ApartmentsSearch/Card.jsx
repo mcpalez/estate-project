@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { AiFillStar } from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import PropTypes from "prop-types";
 
 function Card({ apartment, isFavorite, onFavoriteClick }) {
@@ -31,7 +31,7 @@ function Card({ apartment, isFavorite, onFavoriteClick }) {
                         <div className="apartmentList__features flex-none w-[150px] text-center p-[6px] hidden md:block">
                             {apartment.balkon === true ? "Tak" : "Nie"}
                         </div>
-                        <div className="apartmentList__price flex-none w-[150px] text-center p-[6px] hidden lg:block">
+                        <div className="apartmentList__price flex-none w-[150px] font-[700] text-center p-[6px] hidden lg:block">
                             {apartment.cena} PLN
                         </div>
                     </div>
@@ -42,13 +42,11 @@ function Card({ apartment, isFavorite, onFavoriteClick }) {
                             onFavoriteClick(apartment);
                         }}
                     >
-                        <AiFillStar
-                            className={`${
-                                isFavorite(apartment.id)
-                                    ? "text-[#4955c6] animate-bounce"
-                                    : "text-gray-300"
-                            } w-6 h-6 md:w-8 md:h-8 md:hover:text-[#4955c6]`}
-                        />
+                        {isFavorite(apartment.id) ? (
+                            <AiFillHeart className="w-6 h-6 text-gray-300" />
+                        ) : (
+                            <AiOutlineHeart className="w-6 h-6 text-gray-300" />
+                        )}
                     </button>
                 </div>
             </div>
