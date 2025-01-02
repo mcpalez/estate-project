@@ -1,14 +1,14 @@
 import { useFavorite } from "../hooks/useFavorite";
 import { useFetchApartments } from "../hooks/useFetchApartments";
-import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import ViewToggle from "../components/ApartmentsList/ViewToggle";
 import TabHeader from "../components/ApartmentsList/TabHeader";
 import Card from "../components/ApartmentsList/Card";
 
 function Apartments() {
     const { isFavorite, toggleFavorite } = useFavorite();
-    const [isTableView, setIsTableView] = useState(true);
-    const toggleView = () => setIsTableView(!isTableView);
+    const [searchParams] = useSearchParams();
+    const isTableView = searchParams.get("view") !== "grid";
 
     const { apartments } = useFetchApartments(
         "http://localhost:1337/api/mieszkania"
@@ -16,7 +16,7 @@ function Apartments() {
 
     return (
         <>
-            <ViewToggle onToggle={toggleView} isTableView={isTableView} />
+            <ViewToggle />
             {isTableView ? <TabHeader /> : null}
             {apartments.length === 0 ? (
                 <div className="container mx-auto px-3 py-8">
@@ -24,15 +24,17 @@ function Apartments() {
                 </div>
             ) : null}
             <section className="apartments-listing container mx-auto px-3 py-2">
-                {apartments.map((apartment) => (
-                    <Card
-                        key={apartment.id}
-                        apartment={apartment}
-                        isFavorite={isFavorite}
-                        onFavoriteClick={toggleFavorite}
-                        isTableView={isTableView}
-                    />
-                ))}
+                <div className={isTableView ? "" : "flex flex-row flex-wrap"}>
+                    {apartments.map((apartment) => (
+                        <Card
+                            key={apartment.id}
+                            apartment={apartment}
+                            isFavorite={isFavorite}
+                            onFavoriteClick={toggleFavorite}
+                            isTableView={isTableView}
+                        />
+                    ))}
+                </div>
             </section>
         </>
     );

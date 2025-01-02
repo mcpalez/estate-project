@@ -26,7 +26,7 @@ function Card({ apartment, isFavorite, onFavoriteClick, isTableView }) {
                                     {apartment.liczba_pokoi}
                                 </div>
                             </div>
-                            <div className="apartmentList__area flex-none w-[100px] font-[700] text-right p-[6px]">
+                            <div className="apartmentList__area flex-none w-[90px] md:w-[100px] font-[700] text-right p-[6px]">
                                 {apartment.metraz} m²
                             </div>
                             <div className="apartmentList__features flex-none w-[150px] text-center p-[6px] hidden md:block">
@@ -56,7 +56,9 @@ function Card({ apartment, isFavorite, onFavoriteClick, isTableView }) {
     } else {
         return (
             <>
-                <div>Kafelka</div>
+                <div className="apartment_item apartment_item--grid flex basis-1/3 min-h-[250px]">
+                    Grid
+                </div>
             </>
         );
     }

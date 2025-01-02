@@ -16,12 +16,12 @@ html {
 .listableSave {
   // position: relative; To powinno być włączone
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 2px;
-    width: calc(100% - 4px);
-    border-bottom: 2px solid #d1d5db;
-  }
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 2px;
+  //   width: calc(100% - 4px);
+  //   border-bottom: 2px solid #d1d5db;
+  // }
 }
