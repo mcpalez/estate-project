@@ -45,11 +45,13 @@ function Apartments() {
 
     return (
         <>
-            {/* <Filter
-                priceMin={priceMin}
-                priceMax={priceMax}
-                onFilterChange={handleFilterChange}
-            /> */}
+            <section className="app-filters">
+                <Filter
+                    priceMin={priceMin}
+                    priceMax={priceMax}
+                    onFilterChange={handleFilterChange}
+                />
+            </section>
             <TabHeader />
             <section className="apartments-listing container mx-auto px-3 py-2">
                 {apartments.length === 0 ? (

@@ -1,6 +1,6 @@
 function ApartmentsTableHeader() {
     return (
-        <section className="apartment-listable container mx-auto px-3 pt-5">
+        <section className="apartments-header container mx-auto px-3 pt-5">
             <div className="flex items-center w-full text-[13px] text-black">
                 <div className="listableHeader flex-none p-[6px] pl-0 w-[150px] xl:w-[350px] pb-3 hidden md:block">
                     Inwestycja
