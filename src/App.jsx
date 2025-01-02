@@ -4,7 +4,7 @@ import "./App.css";
 
 import Apartments from "./pages/Apartments";
 import ApartmentView from "./pages/ApartmentView";
-import Header from "./components/layout/Header";
+import Header from "./components/Layout/Header";
 import Favorites from "./pages/Favorites";
 
 function App() {

@@ -1,57 +1,18 @@
-import { useSearchParams } from "react-router";
-import { useFilteredApartments } from "../hooks/useFilteredApartments";
 import { useFavorite } from "../hooks/useFavorite";
+import { useFetchApartments } from "../hooks/useFetchApartments";
 
-import TabHeader from "../components/ApartmentsSearch/TabHeader";
-import Card from "../components/ApartmentsSearch/Card";
-import Filter from "../components/ApartmentsSearch/Filter";
+import TabHeader from "../components/ApartmentsList/TabHeader";
+import Card from "../components/ApartmentsList/Card";
 
 function Apartments() {
-    const [searchParams, setSearchParams] = useSearchParams("");
     const { isFavorite, toggleFavorite } = useFavorite();
 
-    const priceMax = searchParams.get("price_max") || "";
-    const priceMin = searchParams.get("price_min") || "";
-
-    const handleFilterChange = (key, value) => {
-        setSearchParams((prev) => {
-            const newParams = new URLSearchParams(prev);
-            if (value === "") {
-                newParams.delete(key);
-            } else {
-                newParams.set(key, value);
-            }
-            return newParams;
-        });
-    };
-
-    const { apartments, isLoading, error } = useFilteredApartments(
-        "http://localhost:1337/api/mieszkania",
-        priceMin,
-        priceMax
+    const { apartments } = useFetchApartments(
+        "http://localhost:1337/api/mieszkania"
     );
-
-    if (isLoading) {
-        return (
-            <div className="container mx-auto px-3">
-                <p>Ładowanie danych...</p>
-            </div>
-        );
-    }
-
-    if (error) {
-        return <p>Błąd {error}</p>;
-    }
 
     return (
         <>
-            <section className="app-filters">
-                <Filter
-                    priceMin={priceMin}
-                    priceMax={priceMax}
-                    onFilterChange={handleFilterChange}
-                />
-            </section>
             <TabHeader />
             <section className="apartments-listing container mx-auto px-3 py-2">
                 {apartments.length === 0 ? (

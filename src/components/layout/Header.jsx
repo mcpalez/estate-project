@@ -8,10 +8,10 @@ function Header() {
     return (
         <>
             <header className="app-header">
-                <div className="bg-[#1460d8] py-2 text-black">
+                <div className="bg-[#000] py-2 text-black">
                     <div className="container mx-auto px-3 font-[900] text-[32px]">
                         <div className="flex items-center justify-between">
-                            <div className="logo-app text-white">NOVITO</div>
+                            <div className="logo-app text-white">IMMO</div>
                             <div className="mobile-nav">
                                 <div className="nav-el">
                                     <Link to="/ulubione">
