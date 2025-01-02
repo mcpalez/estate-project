@@ -14,7 +14,7 @@ html {
 .listableRooms,
 .listableArea,
 .listableSave {
-  position: relative;
+  // position: relative; To powinno być włączone
 
   &::after {
     content: "";

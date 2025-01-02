@@ -44,9 +44,9 @@ function Card({ apartment, isFavorite, onFavoriteClick, isTableView }) {
                             }}
                         >
                             {isFavorite(apartment.id) ? (
-                                <AiFillHeart className="w-6 h-6 text-gray-300" />
+                                <AiFillHeart className="w-6 h-6 md:w-8 md:h-8 text-gray-300" />
                             ) : (
-                                <AiOutlineHeart className="w-6 h-6 text-gray-300" />
+                                <AiOutlineHeart className="w-6 h-6 md:w-8 md:h-8 text-gray-300" />
                             )}
                         </button>
                     </div>

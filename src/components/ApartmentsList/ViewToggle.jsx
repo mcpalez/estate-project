@@ -4,21 +4,19 @@ import { RiGalleryView2, RiTableView } from "react-icons/ri";
 function ViewToggle({ isTableView, onToggle }) {
     return (
         <>
-            <div className="container mx-auto px-3">
+            <div className="apartments-view--toggle container mx-auto px-3">
                 <div className="flex gap-5 justify-end py-3">
                     <button
                         onClick={onToggle}
-                        className="bg-[#4855c6] text-white py-3 px-5 rounded-[50px] font-[600]"
+                        className="bg-[#4855c6] text-white py-3 px-4 rounded-xl font-[600]"
                     >
                         {isTableView ? (
                             <div className="flex items-center gap-2">
-                                <RiGalleryView2 className="text-[20px]" />
-                                Kafelki
+                                <RiGalleryView2 className="text-[17px] md:text-[20px]" />
                             </div>
                         ) : (
                             <div className="flex items-center gap-2">
-                                <RiTableView className="text-[20px]" />
-                                Tabela
+                                <RiTableView className="text-[17px] md:text-[20px]" />
                             </div>
                         )}
                     </button>

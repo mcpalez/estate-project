@@ -10,12 +10,6 @@ html {
           text-size-adjust: 100%;
 }
 
-.listableHeader,
-.listableRooms,
-.listableArea,
-.listableSave {
-  position: relative;
-}
 .listableHeader::after,
 .listableRooms::after,
 .listableArea::after,

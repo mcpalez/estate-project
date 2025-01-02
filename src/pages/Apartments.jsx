@@ -2,7 +2,6 @@ import { useFavorite } from "../hooks/useFavorite";
 import { useFetchApartments } from "../hooks/useFetchApartments";
 import { useState } from "react";
 import ViewToggle from "../components/ApartmentsList/ViewToggle";
-
 import TabHeader from "../components/ApartmentsList/TabHeader";
 import Card from "../components/ApartmentsList/Card";
 
@@ -19,12 +18,12 @@ function Apartments() {
         <>
             <ViewToggle onToggle={toggleView} isTableView={isTableView} />
             {isTableView ? <TabHeader /> : null}
+            {apartments.length === 0 ? (
+                <div className="container mx-auto px-3 py-8">
+                    <p>Brak wyników</p>
+                </div>
+            ) : null}
             <section className="apartments-listing container mx-auto px-3 py-2">
-                {apartments.length === 0 ? (
-                    <div className="container mx-auto py-8">
-                        <p>Brak wyników</p>
-                    </div>
-                ) : null}
                 {apartments.map((apartment) => (
                     <Card
                         key={apartment.id}
