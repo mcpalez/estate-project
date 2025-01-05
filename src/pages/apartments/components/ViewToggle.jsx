@@ -14,17 +14,15 @@ function ViewToggle() {
             <div className="flex gap-5 justify-end py-3">
                 <button
                     onClick={toggleView}
-                    className="text-[#242958] py-3 px-1 rounded-xl font-[600]"
+                    className="text-[#242958] py-3 rounded-xl font-[600]"
                 >
                     {isTableView ? (
                         <div className="flex items-center gap-2">
-                            Widok:{" "}
-                            <RiGalleryView2 className="text-[22px] md:text-[23px]" />
+                            <RiGalleryView2 className="text-[24px] md:text-[24px]" />
                         </div>
                     ) : (
                         <div className="flex items-center gap-2">
-                            Widok:{" "}
-                            <RiTableView className="text-[22px] md:text-[23px]" />
+                            <RiTableView className="text-[24px] md:text-[24px]" />
                         </div>
                     )}
                 </button>

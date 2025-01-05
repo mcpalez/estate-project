@@ -2,9 +2,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 
-import Apartments from "./pages/Apartments";
+import Apartments from "./pages/apartments/Apartments";
 import ApartmentView from "./pages/ApartmentView";
-import Header from "./components/Layout/Header";
+import Header from "./components/layout/Header";
 import Favorites from "./pages/Favorites";
 
 function App() {

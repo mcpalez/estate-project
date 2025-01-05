@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addFavorite, removeFavorite } from "../redux/actions";
+import { addFavorite, removeFavorite } from "../store/actions";
 
 export const useFavorite = () => {
     const dispatch = useDispatch();
