@@ -1,23 +1,40 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const ApartmentDetail = () => {
+const ApartmentView = () => {
     const { id } = useParams();
     const [apartment, setApartment] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const url = import.meta.env.VITE_API_URL;
+    const apiKey = import.meta.env.VITE_API_KEY;
+
     useEffect(() => {
+        console.log("Apartment ID:", id);
+        console.log("URL", id, url);
+        console.log(`${url}?id=eq.${id}`);
         const fetchApartment = async () => {
             try {
-                const response = await fetch(
-                    `http://localhost:1337/api/mieszkania/${id}`
-                );
+                const response = await fetch(`${url}?id=eq.${id}`, {
+                    headers: {
+                        apikey: apiKey,
+                        Authorization: `Bearer ${apiKey}`,
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error(
+                        `Błąd ${response.status}: Nie udało się pobrać danych`
+                    );
+                }
+
                 const data = await response.json();
-                if (data.data) {
-                    setApartment(data.data);
-                } else {
+
+                if (data.length === 0) {
                     setError("Nie znaleziono mieszkania");
+                } else {
+                    setApartment(data[0]); // Pierwszy (i jedyny) wynik
                 }
             } catch (err) {
                 setError(
@@ -29,7 +46,7 @@ const ApartmentDetail = () => {
         };
 
         fetchApartment();
-    }, [id]);
+    }, [id, url, apiKey]);
 
     if (isLoading) {
         return <p>Ładowanie danych...</p>;
@@ -55,4 +72,4 @@ const ApartmentDetail = () => {
     );
 };
 
-export default ApartmentDetail;
+export default ApartmentView;

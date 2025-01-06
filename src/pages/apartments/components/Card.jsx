@@ -8,7 +8,7 @@ function Card({ apartment, isFavorite, onFavoriteClick, isTableView }) {
             <>
                 <div className="apartment_item apartment_item--table flex items-center w-full border-b-[1px] border-slate-200 py-2">
                     <Link
-                        to={`/mieszkania/${apartment.documentId}`}
+                        to={`/mieszkania/${apartment.id}`}
                         className="flex-grow"
                     >
                         <div className="flex items-center">
@@ -67,7 +67,6 @@ function Card({ apartment, isFavorite, onFavoriteClick, isTableView }) {
 Card.propTypes = {
     apartment: PropTypes.shape({
         id: PropTypes.number.isRequired,
-        documentId: PropTypes.string.isRequired,
         nazwa: PropTypes.string.isRequired,
         inwestycja: PropTypes.string.isRequired,
         pietro: PropTypes.number.isRequired,

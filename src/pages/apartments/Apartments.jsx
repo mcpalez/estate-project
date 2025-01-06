@@ -5,13 +5,12 @@ import { useSearchParams } from "react-router-dom";
 import ViewToggle from "./components/ViewToggle";
 import TableHeader from "./components/TableHeader";
 import Card from "./components/Card";
-import Hero from "./components/Hero";
 
 function Apartments() {
     const { isFavorite, toggleFavorite } = useFavorite();
     const [searchParams] = useSearchParams();
     const isTableView = searchParams.get("view") !== "grid";
-    const { apartments } = useFetchApartments(import.meta.env.VITE_API_URL);
+    const { apartments } = useFetchApartments();
 
     const renderApartments = () => {
         if (apartments.length === 0) {
@@ -39,7 +38,6 @@ function Apartments() {
 
     return (
         <>
-            <Hero />
             <ViewToggle />
             {isTableView && <TableHeader />}
             <section className="apartments-listing container mx-auto px-3 py-2">
