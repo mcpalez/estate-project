@@ -12,27 +12,27 @@ function Card({ apartment, isFavorite, onFavoriteClick, isTableView }) {
                         className="flex-grow"
                     >
                         <div className="flex items-center">
-                            <div className="apartmentList__investition flex-none w-[150px] font-[700] xl:w-[350px] font-[400] p-[6px] pl-0 hidden md:block">
+                            <div className="apartmentList__investition flex-none w-[150px] font-[700] xl:w-[300px] font-[400] p-[6px] pl-0 hidden md:block lg:text-lg">
                                 {apartment.inwestycja}
                             </div>
-                            <div className="apartmentList__name flex-none w-[150px] font-[400] p-[6px] pl-0">
+                            <div className="apartmentList__name flex-none w-[150px] xl:w-[250px] font-[400] p-[6px] pl-0 lg:text-lg">
                                 {apartment.nazwa}
                             </div>
-                            <div className="apartmentList__pietro flex-none w-[60px] font-[400] text-center p-[6px] pl-0 hidden md:block">
+                            <div className="apartmentList__pietro flex-none w-[60px] lg:w-[80px] font-[400] text-center p-[6px] pl-0 hidden md:block lg:text-lg">
                                 {apartment.pietro}
                             </div>
-                            <div className="apartmentList__rooms flex-none w-[60px] rounded text-center p-[6px]">
-                                <div className="w-[40px] bg-gray-100 rounded py-[7px]">
+                            <div className="apartmentList__rooms flex-none w-[60px] lg:w-[80px] rounded text-center p-[6px] lg:text-lg flex items-center justify-center">
+                                <div className="w-[40px] bg-gray-100 rounded py-[7px] text-center">
                                     {apartment.liczba_pokoi}
                                 </div>
                             </div>
-                            <div className="apartmentList__area flex-none w-[90px] md:w-[100px] font-[700] text-right p-[6px]">
+                            <div className="apartmentList__area flex-none w-[90px] md:w-[100px] xl:w-[150px] font-[700] text-right p-[6px] lg:text-lg">
                                 {apartment.metraz} m²
                             </div>
-                            <div className="apartmentList__features flex-none w-[150px] text-center p-[6px] hidden md:block">
+                            <div className="apartmentList__features flex-none w-[150px] text-center p-[6px] hidden md:block lg:text-lg">
                                 {apartment.balkon === true ? "Tak" : "Nie"}
                             </div>
-                            <div className="apartmentList__price flex-none w-[150px] text-center p-[6px] hidden lg:block">
+                            <div className="apartmentList__price flex-none w-[150px] text-center p-[6px] hidden lg:block lg:text-lg">
                                 {apartment.cena} PLN
                             </div>
                         </div>

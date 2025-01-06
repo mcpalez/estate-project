@@ -1,4 +1,5 @@
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { RiMenuLine } from "react-icons/ri";
 import { Link } from "react-router";
 import { useSelector } from "react-redux";
 
@@ -8,26 +9,32 @@ function Header() {
     return (
         <>
             <header className="app-header sticky top-0">
-                <div className="bg-[#061ab1] py-2 text-black">
+                <div className="bg-white py-3 text-black">
                     <div className="container mx-auto px-3 font-[900] text-[35px]">
                         <div className="flex items-center justify-between">
-                            <div className="logo-app text-white">
-                                IMMO<span className="text-[#ffd100]">.</span>
+                            <div className="logo-app text-black">
+                                IMMO<span className="text-gray-300">.</span>
                             </div>
                             <div className="mobile-nav">
-                                <div className="nav-el">
+                                <div className="nav-el flex items-center justify-center gap-4">
                                     <Link to="/ulubione">
                                         {favorites.length > 0 ? (
                                             <div className="relative">
-                                                <AiFillHeart className="text-white" />
-                                                <span className="favorites-counter absolute top-0 left-[-5px] bg-[#ffd100] text-[#242958] p-1 rounded-[10px] w-[17px] h-[17px] flex justify-center items-center text-[10px]">
+                                                <AiFillHeart className="text-black text-[30px]" />
+                                                <span className="favorites-counter absolute top-0 left-[-5px] bg-[#ffd100] text-[#242958] p-1 rounded-[10px] w-[16px] h-[16px] flex justify-center items-center text-[10px]">
                                                     {favorites.length}
                                                 </span>
                                             </div>
                                         ) : (
-                                            <AiOutlineHeart className="text-white" />
+                                            <AiOutlineHeart className="text-gray-400 text-[30px]" />
                                         )}
                                     </Link>
+                                    <RiMenuLine className="text-gray-400 md:hidden" />
+                                    <button className="text-[16px] font-[600] bg-orange-600 rounded-[50px] py-[10px] px-5 text-white hidden md:flex">
+                                        <Link to="/mieszkania">
+                                            Znajdź mieszkanie
+                                        </Link>
+                                    </button>
                                 </div>
                             </div>
                         </div>
