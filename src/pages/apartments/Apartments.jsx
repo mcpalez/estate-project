@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import ViewToggle from "./components/ViewToggle";
 import TableHeader from "./components/TableHeader";
 import Card from "./components/Card";
+import AddItem from "./components/AddItem";
 
 function Apartments() {
     const { isFavorite, toggleFavorite } = useFavorite();
@@ -42,6 +43,9 @@ function Apartments() {
             {isTableView && <TableHeader />}
             <section className="apartments-listing container mx-auto px-3 py-2">
                 {renderApartments()}
+            </section>
+            <section className="container mx-auto px-3 py-2">
+                <AddItem />
             </section>
         </>
     );

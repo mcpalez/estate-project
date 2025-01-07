@@ -1,5 +1,5 @@
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import { RiMenuLine, RiSearchLine } from "react-icons/ri";
+import { RiMenuLine, RiSearchLine, RiAddLine } from "react-icons/ri";
 import { Link } from "react-router";
 import { useSelector } from "react-redux";
 
@@ -27,14 +27,20 @@ function Header() {
                                             <AiOutlineHeart className="text-gray-400" />
                                         )}
                                     </Link>
-                                    <RiMenuLine className="text-gray-400 md:hidden" />
-                                    <Link to="/mieszkania">
+                                    <Link
+                                        to="/mieszkania"
+                                        className="block md:hidden"
+                                    >
                                         <RiSearchLine className="text-gray-400" />
                                     </Link>
-                                    <button className="text-[16px] font-[600] bg-orange-600 rounded-[50px] py-[10px] px-5 text-white hidden md:flex">
+                                    <RiMenuLine className="text-gray-400 md:hidden" />
+                                    <button className="text-[17px] font-[600] bg-orange-600 rounded-[50px] py-[10px] px-5 text-white hidden md:flex">
                                         <Link to="/mieszkania">
                                             Znajdź mieszkanie
                                         </Link>
+                                    </button>
+                                    <button className="text-[30px] font-[600] bg-yellow-500 rounded-[50px] py-[7.75px] px-3 text-white hidden md:flex">
+                                        <RiAddLine className="text-white" />
                                     </button>
                                 </div>
                             </div>
