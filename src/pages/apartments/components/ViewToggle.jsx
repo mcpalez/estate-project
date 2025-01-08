@@ -18,11 +18,11 @@ function ViewToggle() {
                 >
                     {isTableView ? (
                         <div className="flex items-center gap-2">
-                            <RiGalleryView2 className="text-[24px] text-gray-400 md:text-[32px]" />
+                            <RiGalleryView2 className="text-[24px] text-gray-400 md:text-[30px]" />
                         </div>
                     ) : (
                         <div className="flex items-center gap-2">
-                            <RiTableView className="text-[24px] text-gray-400 md:text-[32px]" />
+                            <RiTableView className="text-[24px] text-gray-400 md:text-[30px]" />
                         </div>
                     )}
                 </button>
