@@ -9,4 +9,4 @@
 
 ### Technologies Used:
 
-- **[Supabase](https://supabase.com):** Hosted PostgreSQL database with RESTful API support, used alongside Supabase.js for seamless integration.
+- **[Supabase](https://supabase.com):** Hosted PostgreSQL database with RESTful API support.
