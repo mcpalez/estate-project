@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-// import { RiCheckboxCircleFill } from "react-icons/ri";
 import PropTypes from "prop-types";
 
 function Card({ apartment, isFavorite, onFavoriteClick, isTableView }) {
@@ -58,33 +57,74 @@ function Card({ apartment, isFavorite, onFavoriteClick, isTableView }) {
         return (
             <>
                 <div className="apartment_item apartment_item--grid flex-grow flex-shrink basis-1/2 md:basis-1/3 lg:basis-1/4 min-h-[250px] border-[1px] border-gray-300 rounded-[5px] bg-white py-7 px-7">
-                    <div className="apartment__item--grid__header flex justify-end">
+                    <div className="apartment__item--grid__header flex justify-between">
+                        <div
+                            className={`${apartment.status === "Sprzedane" ? "bg-slate-400 text-white " : "border-[1px] border-blue-700 text-blue-700"} flex items-center justify-center px-3 text-[12px] font-[500] uppercase rounded`}
+                        >
+                            {apartment.status}
+                        </div>
                         <button
                             onClick={() => {
                                 onFavoriteClick(apartment);
                             }}
                         >
                             {isFavorite(apartment.id) ? (
-                                <AiFillHeart className="text-[28px] text-blue-600" />
+                                <AiFillHeart className="text-[28px] text-red-600" />
                             ) : (
                                 <AiOutlineHeart className="text-[28px] text-themeBlue" />
                             )}
                         </button>
                     </div>
                     <div className="apartment__item--grid__thumbnail">
-                        <div className="min-h-[150px]"></div>
+                        <div className="min-h-[30px]"></div>
                     </div>
                     <div className="apartment__item--grid__content">
-                        <div className="flex flex-col">
+                        <div className="flex flex-col pb-4">
                             <div className="apartment__item--grid__investition">
                                 <span className="uppercase text-[12px] tracking-widest text-gray-500 font-[500]">
                                     {apartment.inwestycja}
                                 </span>
                             </div>
                             <div className="apartment__item--grid__name pb-8">
-                                <span className="text-[23px] font-[500] tracking-tight text-themeBlue">
+                                <span className="text-[26px] font-[500] tracking-tighter text-themeBlue">
                                     {apartment.nazwa}
                                 </span>
+                            </div>
+                            <div className="apartment__item--grid__table flex justify-between border-t-[1px] border-slate-200 pt-4">
+                                <div className="grid__table_tab pr-5">
+                                    <div className="uppercase text-[12px] text-gray-500 font-[500]">
+                                        Metraż:
+                                    </div>
+                                    <div>{apartment.metraz} m²</div>
+                                </div>
+                                <div className="grid__table_tab pr-5">
+                                    <div className="uppercase text-[12px] text-gray-500 font-[500]">
+                                        Piętro:
+                                    </div>
+                                    <div>{apartment.pietro}</div>
+                                </div>
+                                <div className="grid__table_tab pr-5">
+                                    <div className="uppercase text-[12px] text-gray-500 font-[500]">
+                                        Pokoje:
+                                    </div>
+                                    <div>{apartment.liczba_pokoi}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="apartment__item--grid__footer">
+                        <div className="flex flex-col items-center pt-4 border-t-[1px] border-slate-200">
+                            <div className="text-[23px] text-themeBlue font-[500]">
+                                <span className="font-[600]">
+                                    {(apartment.cena / apartment.metraz)
+                                        .toFixed(2)
+                                        .toLocaleString("pl-PL")}
+                                </span>
+                                zł/m²
+                            </div>
+                            <div className="text-[13px] text-gray-600">
+                                Razem: {apartment.cena.toLocaleString("pl-PL")}{" "}
+                                zł
                             </div>
                         </div>
                     </div>
@@ -104,6 +144,7 @@ Card.propTypes = {
         metraz: PropTypes.number.isRequired,
         balkon: PropTypes.bool,
         cena: PropTypes.number,
+        status: PropTypes.string,
     }).isRequired,
     isFavorite: PropTypes.func.isRequired,
     onFavoriteClick: PropTypes.func.isRequired,

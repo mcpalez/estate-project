@@ -11,9 +11,6 @@ const ApartmentView = () => {
     const apiKey = import.meta.env.VITE_API_KEY;
 
     useEffect(() => {
-        console.log("Apartment ID:", id);
-        console.log("URL", id, url);
-        console.log(`${url}?id=eq.${id}`);
         const fetchApartment = async () => {
             try {
                 const response = await fetch(`${url}?id=eq.${id}`, {
