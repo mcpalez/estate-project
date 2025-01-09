@@ -15,14 +15,20 @@ function Apartments() {
     const renderApartments = () => {
         if (apartments.length === 0) {
             return (
-                <div className="container mx-auto px-3 py-8">
+                <div className="container mx-auto px-4 py-8">
                     <p>Brak wyników</p>
                 </div>
             );
         }
 
         return (
-            <div className={isTableView ? "" : "flex flex-row flex-wrap"}>
+            <div
+                className={
+                    isTableView
+                        ? "view--table"
+                        : "view--grid flex flex-wrap gap-5"
+                }
+            >
                 {apartments.map((apartment) => (
                     <Card
                         key={apartment.id}
@@ -40,7 +46,7 @@ function Apartments() {
         <>
             <ViewToggle />
             {isTableView && <TableHeader />}
-            <section className="apartments-listing container mx-auto px-3 py-2">
+            <section className="apartments-listing container mx-auto px-4 py-2">
                 {renderApartments()}
             </section>
         </>

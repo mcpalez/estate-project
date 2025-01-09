@@ -10,7 +10,7 @@ function ViewToggle() {
     };
 
     return (
-        <div className="apartments-view--toggle container mx-auto px-3">
+        <div className="apartments-view--toggle container mx-auto px-4">
             <div className="flex gap-5 justify-end py-3">
                 <button
                     onClick={toggleView}
@@ -18,11 +18,11 @@ function ViewToggle() {
                 >
                     {isTableView ? (
                         <div className="flex items-center gap-2">
-                            <RiGalleryView2 className="text-[24px] text-gray-400 md:text-[30px]" />
+                            <RiGalleryView2 className="text-[24px] text-gray-400 md:text-[28px]" />
                         </div>
                     ) : (
                         <div className="flex items-center gap-2">
-                            <RiTableView className="text-[24px] text-gray-400 md:text-[30px]" />
+                            <RiTableView className="text-[24px] text-gray-400 md:text-[28px]" />
                         </div>
                     )}
                 </button>

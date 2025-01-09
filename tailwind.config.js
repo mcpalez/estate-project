@@ -5,6 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    extend: {
+      colors: {
+        themeBlue: '#05203c',
+      }
+    },
     container: {
       screens: {
         sm: '640px',

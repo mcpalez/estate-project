@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { AiOutlineHeart } from "react-icons/ai";
-import { RiCheckboxCircleFill } from "react-icons/ri";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+// import { RiCheckboxCircleFill } from "react-icons/ri";
 import PropTypes from "prop-types";
 
 function Card({ apartment, isFavorite, onFavoriteClick, isTableView }) {
@@ -45,9 +45,9 @@ function Card({ apartment, isFavorite, onFavoriteClick, isTableView }) {
                             }}
                         >
                             {isFavorite(apartment.id) ? (
-                                <RiCheckboxCircleFill className="text-[32px] text-green-600" />
+                                <AiFillHeart className="text-[28px] text-blue-600" />
                             ) : (
-                                <AiOutlineHeart className="text-[32px] text-gray-400" />
+                                <AiOutlineHeart className="text-[28px] text-gray-400" />
                             )}
                         </button>
                     </div>
@@ -57,8 +57,37 @@ function Card({ apartment, isFavorite, onFavoriteClick, isTableView }) {
     } else {
         return (
             <>
-                <div className="apartment_item apartment_item--grid flex basis-1/3 min-h-[250px]">
-                    .
+                <div className="apartment_item apartment_item--grid flex-grow flex-shrink basis-1/2 md:basis-1/3 lg:basis-1/4 min-h-[250px] border-[1px] border-gray-300 rounded-[5px] bg-white py-7 px-7">
+                    <div className="apartment__item--grid__header flex justify-end">
+                        <button
+                            onClick={() => {
+                                onFavoriteClick(apartment);
+                            }}
+                        >
+                            {isFavorite(apartment.id) ? (
+                                <AiFillHeart className="text-[28px] text-blue-600" />
+                            ) : (
+                                <AiOutlineHeart className="text-[28px] text-themeBlue" />
+                            )}
+                        </button>
+                    </div>
+                    <div className="apartment__item--grid__thumbnail">
+                        <div className="min-h-[150px]"></div>
+                    </div>
+                    <div className="apartment__item--grid__content">
+                        <div className="flex flex-col">
+                            <div className="apartment__item--grid__investition">
+                                <span className="uppercase text-[12px] tracking-widest text-gray-500 font-[500]">
+                                    {apartment.inwestycja}
+                                </span>
+                            </div>
+                            <div className="apartment__item--grid__name pb-8">
+                                <span className="text-[23px] font-[500] tracking-tight text-themeBlue">
+                                    {apartment.nazwa}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </>
         );
