@@ -1,17 +1,12 @@
-# Real Estate Listing Application
+### Technologies Used:
 
-## Opis projektu
+- **[React.js](https://reactjs.org/):** A powerful JavaScript library for building user interfaces.
+- **[Tailwind CSS](https://tailwindcss.com/):** A utility-first CSS framework for styling and layout.
+- **[Redux](https://redux.js.org/):** A state management library used to store favorites and handle global application state.
+- **[Supabase.js](https://supabase.com/docs/reference/javascript):** For user management and real-time data syncing with the backend.
 
-Aplikacja do zarządzania ogłoszeniami nieruchomości, która wykorzystuje **Supabase** do zarządzania danymi (docelowo Sanity), **React** jako główny framework JavaScript, **Redux** do przechowywania ulubionych nieruchomości w local storage oraz **Tailwind CSS** do stylizacji interfejsu użytkownika.
+## Backend
 
-## Technologie
+### Technologies Used:
 
-- **Frontend**: React, Redux, Tailwind CSS
-- **Backend**: Supabase, Sanity (docelowo),
-
-## Funkcjonalności
-
-- Wyświetlanie listy nieruchomości z backendu Strapi
-- Możliwość dodawania, edytowania i usuwania ogłoszeń nieruchomości
-- Przechowywanie ulubionych nieruchomości w local storage przy użyciu Redux
-- Responsywny interfejs użytkownika z wykorzystaniem Tailwind CSS
+- **[Supabase](https://supabase.com):** Hosted PostgreSQL database with RESTful API support, used alongside Supabase.js for seamless integration.
