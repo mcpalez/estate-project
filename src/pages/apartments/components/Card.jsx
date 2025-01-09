@@ -58,7 +58,7 @@ function Card({ apartment, isFavorite, onFavoriteClick, isTableView }) {
         return (
             <>
                 <div className="apartment_item apartment_item--grid flex basis-1/3 min-h-[250px]">
-                    Grid
+                    .
                 </div>
             </>
         );
