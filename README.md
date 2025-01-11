@@ -10,3 +10,4 @@
 ### Technologies Used:
 
 - **[Supabase](https://supabase.com):** Hosted PostgreSQL database with RESTful API support.
+- **[Sanity]** Incoming
