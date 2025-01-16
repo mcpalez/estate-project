@@ -21,7 +21,7 @@ function Header() {
                                         {favorites.length > 0 ? (
                                             <div className="relative">
                                                 <AiFillHeart className="text-white text-[27px]" />
-                                                <span className="favorites-counter absolute top-0 left-[-5px] bg-blue-600 text-white p-1 rounded-[10px] w-[16px] h-[16px] flex justify-center items-center text-[10px] font-[700]">
+                                                <span className="favorites-counter absolute top-0 left-[-5px] bg-blue-700 text-white p-1 rounded-[10px] w-[16px] h-[16px] flex justify-center items-center text-[10px] font-[700]">
                                                     {favorites.length}
                                                 </span>
                                             </div>
